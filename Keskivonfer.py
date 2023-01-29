@@ -20,14 +20,14 @@ print("Followers : "+str(infos["followers_count"])+" | Following : "+str(infos["
 print("Created at : "+str(infos["created_at"]))
 print("Last loged on : "+str(infos["last_loged_on_ts"]))
 print("City : "+str(infos["city"]) + " | Country : "+str(infos["country_title"]))
-if infos["photo"]["url"]!=None:
-    print("Profile pictue : "+str(infos["photo"]["url"]))
-else :
+if infos["photo"]["url"] is None:
     print("Profile pictue : "+str(infos["photo"]))
+else:
+    print("Profile pictue : "+str(infos["photo"]["url"]))
 print("Verified Informations : ")
 
 for v in infos["verification"]:
-    toprint=str(v) + " "
+    toprint = f"{str(v)} "
     for i in infos["verification"][v]:
-        toprint+= " | "+str(i)+" : "+str(infos["verification"][v][i])
+        toprint += f" | {str(i)} : " + str(infos["verification"][v][i])
     print(toprint)
